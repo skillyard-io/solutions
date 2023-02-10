@@ -1,0 +1,465 @@
+<!doctype html>
+<html class="no-js" lang="">
+
+<head>
+    <meta charset="utf-8">
+    <title></title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Normalize.css: A CSS Reset to ensure all browsers look the same from the get go. Read more about it here https://necolas.github.io/normalize.css/ -->
+    <link rel="stylesheet" href="css/normalize.css">
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Figtree:wght@300;400;500;700&display=swap" rel="stylesheet">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            'sky-blue': '#F3F9FC',
+                            'black-transparent': '#464E5B',
+                            'black': '#26292E',
+                            'off-black': '#333333',
+                            'red': '#DC4B39',
+                            'cloudy-white': '#CFD9E0',
+                            'blue': '#0C69E6',
+                            'mount-blue': '#0133A3',
+                            'jade-blue': '#0B6AE6',
+                            'light-blue': '#B2DEFF',
+                            'mid-blue': '#204FCD'
+                        }
+                    },
+                    fontFamily: {
+                        serif: ['FigTree', ...tailwind.defaultConfig.theme.fontFamily.sans]
+                    },
+                    boxShadow: {
+                        'input': '0px 0px 0px 3px rgba(152, 203, 255, 1)'
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+
+<body class="font-serif">
+    <main class="w-full min-h-screen flex-col-reverse flex lg:flex-row">
+        <div
+            class="w-full lg:w-[28%] flex-shrink-0 bg-brand-sky-blue lg:min-h-screen px-4 lg:pl-8 lg:pr-10 pt-2 lg:pt-8 pb-8 lg:pb-0">
+            <img src="images/logo.png" class="h-8 hidden lg:block" alt="Contentful Logo">
+
+            <div class="mt-8">
+                <h1
+                    class="text-brand-black font-bold text-lg tracking-[0.38px] lg:text-[22px] max-w-[318px] leading-7 lg:leading-9 lg:tracking-[0.364px]">
+                    Start building with Contentful, no credit card required.
+                </h1>
+            </div>
+
+            <div class="mt-10">
+                <ul class="flex flex-col max-w-[318px]">
+                    <li class="flex items-start">
+                        <svg class="flex-shrink-0 mr-3" width="20" height="20" viewBox="0 0 20 20" fill="none"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <path
+                                d="M10 0.000915527C4.48 0.000915527 0 4.48092 0 10.0009C0 15.5209 4.48 20.0009 10 20.0009C15.52 20.0009 20 15.5209 20 10.0009C20 4.48092 15.52 0.000915527 10 0.000915527ZM8 15.0009L3 10.0009L4.41 8.59092L8 12.1709L15.59 4.58092L17 6.00092L8 15.0009Z"
+                                fill="#2DDF95" />
+                        </svg>
+
+                        <p class="text-brand-black-transparent leading-6 -mt-1">
+                            Use your favorite tech stack, <br /> language, and framework of your choice
+                        </p>
+                    </li>
+
+                    <li class="flex items-start mt-8">
+                        <svg class="flex-shrink-0 mr-3" width="20" height="20" viewBox="0 0 20 20" fill="none"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <path
+                                d="M10 0.000915527C4.48 0.000915527 0 4.48092 0 10.0009C0 15.5209 4.48 20.0009 10 20.0009C15.52 20.0009 20 15.5209 20 10.0009C20 4.48092 15.52 0.000915527 10 0.000915527ZM8 15.0009L3 10.0009L4.41 8.59092L8 12.1709L15.59 4.58092L17 6.00092L8 15.0009Z"
+                                fill="#2DDF95" />
+                        </svg>
+
+                        <p class="text-brand-black-transparent leading-6 -mt-1">
+                            A full-featured composable content platform — REST and GraphQL APIs for content management,
+                            preview, and delivery
+                        </p>
+                    </li>
+
+                    <li class="flex items-start mt-8">
+                        <svg class="flex-shrink-0 mr-3" width="20" height="20" viewBox="0 0 20 20" fill="none"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <path
+                                d="M10 0.000915527C4.48 0.000915527 0 4.48092 0 10.0009C0 15.5209 4.48 20.0009 10 20.0009C15.52 20.0009 20 15.5209 20 10.0009C20 4.48092 15.52 0.000915527 10 0.000915527ZM8 15.0009L3 10.0009L4.41 8.59092L8 12.1709L15.59 4.58092L17 6.00092L8 15.0009Z"
+                                fill="#2DDF95" />
+                        </svg>
+
+                        <p class="text-brand-black-transparent leading-6 -mt-1">
+                            Open and extensible — SDKs for major languages and an App Framework to extend your interface
+                        </p>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="w-full px-4 lg:flex-grow min-h-screen flex-grow bg-white pb-24">
+            <div class="flex flex-col lg:flex-row lg:justify-end mt-8 lg:px-8">
+                <div class="mb-8">
+                    <img src="images/logo.png" class="h-8 lg:hidden" alt="Contentful Logo">
+                </div>
+                <div class="flex items-center text-brand-black-transparent font-light">
+                    <p>Already have an account?</p>
+                    <a href="#"
+                        class="ml-1 underline underline-offset-[5px] decoration-brand-black-transparent/50 decoration-dashed hover:decoration-solid">Login</a>
+                </div>
+            </div>
+
+            <div class="w-full max-w-md mx-auto mt-10">
+                <h2 class="text-brand-black text-[22px] mb-10 font-bold">
+                    Start building for free
+                </h2>
+
+                <div class="flex flex-col">
+                    <button
+                        class="duration-300 flex items-center justify-center w-full border font-light border-brand-off-black bg-white h-10 text-sm rounded-full transition ease-linear hover:-translate-y-1">
+                        <img class="w-[18px] mr-4" src="images/github-icon.png" alt="github icon">
+
+                        Signup with Github
+                    </button>
+
+                    <button
+                        class="duration-300 flex items-center justify-center mt-5 w-full font-light text-brand-red bg-white border border-brand-red h-10 text-sm rounded-full transition ease-linear hover:-translate-y-1">
+                        <img class="w-[18px] mr-4" src="images/google-icon.png" alt="google icon">
+
+                        Signup with Google
+                    </button>
+
+                    <div class="relative my-10">
+                        <div class="absolute inset-0 flex items-center">
+                            <div class="w-full border-t border-gray-300"></div>
+                        </div>
+                        <div class="relative flex justify-center text-sm">
+                            <span class="bg-white px-4 font-normal text-brand-black">OR</span>
+                        </div>
+                    </div>
+
+                    <form action="http://127.0.0.1:4444/customers" method="post"
+                        enctype="application/x-www-form-urlencoded">
+                        <div class="flex flex-col w-full">
+                            <label for="full_name" class="text-sm text-brand-black-transparent font-light">Full
+                                Name</label>
+                            <input type="text" id="full_name" name="full_name" required
+                                class="font-light transition ease-in-out w-full bg-white border border-brand-cloudy-white h-[44px] px-3 flex items-center mt-2 rounded-md text-sm text-brand-black-transparent focus:outline-none focus:border-brand-blue focus:shadow-input">
+                        </div>
+                        <div class="flex flex-col w-full mt-4">
+                            <label for="company" class="text-sm text-brand-black-transparent font-light">Company</label>
+                            <input type="text" id="company" name="company" required
+                                class="font-light transition ease-in-out w-full bg-white border border-brand-cloudy-white h-[44px] px-3 flex items-center mt-2 rounded-md text-sm text-brand-black-transparent focus:outline-none focus:border-brand-blue focus:shadow-input">
+                        </div>
+                        <div class="flex flex-col w-full mt-4">
+                            <label for="email" class="text-sm text-brand-black-transparent font-light">Email</label>
+                            <input type="email" id="email" name="email" required
+                                class="font-light transition ease-in-out w-full bg-white border border-brand-cloudy-white h-[44px] px-3 flex items-center mt-2 rounded-md text-sm text-brand-black-transparent focus:outline-none focus:border-brand-blue focus:shadow-input">
+                        </div>
+                        <div class="flex flex-col w-full mt-4">
+                            <label for="job_title" class="text-sm text-brand-black-transparent font-light">Job
+                                title
+                            </label>
+                            <div class="relative">
+                                <select placeholder="Choose..." name="job_title" id="job_title" required
+                                    class="font-light appearance-none transition ease-in-out w-full border border-brand-cloudy-white h-[44px] px-3 flex items-center mt-2 rounded-md text-sm text-brand-black-transparent focus:outline-none focus:border-brand-blue focus:shadow-input">
+                                    <option disabled value="">Choose</option>
+                                    <option value="c-level">C-Level</option>
+                                    <option value="vice-president">Vice President</option>
+                                    <option value="director">Director</option>
+                                    <option value="manager">Manager</option>
+                                    <option value="individual-contributor">Individual Contributor</option>
+                                    <option value="consultant">Consultant</option>
+                                    <option value="other">Other</option>
+                                </select>
+
+                                <div
+                                    class="absolute px-5 mt-2 right-0 top-0 border-l border-brand-cloudy-white h-[44px] flex items-center pointer-events-none">
+                                    <svg width="9" height="6" viewBox="0 0 9 6" fill="none"
+                                        xmlns="http://www.w3.org/2000/svg">
+                                        <path
+                                            d="M1.0152 0L4.32 3.2976L7.6248 0L8.64 1.0152L4.32 5.3352L0 1.0152L1.0152 0Z"
+                                            fill="#67728A" />
+                                    </svg>
+
+                                </div>
+                            </div>
+                        </div>
+                        <div class="flex flex-col w-full mt-4">
+                            <label for="job_function" class="text-sm text-brand-black-transparent font-light">Job
+                                Function
+                            </label>
+                            <div class="relative">
+                                <select placeholder="Choose..." id="job_function" name="job_function" required
+                                    class="font-light appearance-none transition ease-in-out w-full border border-brand-cloudy-white h-[44px] px-3 flex items-center mt-2 rounded-md text-sm text-brand-black-transparent focus:outline-none focus:border-brand-blue focus:shadow-input">
+                                    <option disabled value="" s>Choose ...</option>
+                                    <option value="customer-experience">Customer Experience</option>
+                                    <option value="Developer-engineering-programming">Developer / Engineering /
+                                        Programming</option>
+                                    <option value="digital">Digital</option>
+                                    <option value="hr">HR</option>
+                                    <option value="information-technology">Information Technology</option>
+                                    <option value="marketing">Marketing</option>
+                                    <option value="procurement">Procurement</option>
+                                    <option value="product">Product</option>
+                                    <option value="sales">Sales</option>
+                                    <option value="security">Security</option>
+                                    <option value="other">Other</option>
+                                </select>
+
+                                <div
+                                    class="absolute px-5 mt-2 right-0 top-0 border-l border-brand-cloudy-white h-[44px] flex items-center pointer-events-none">
+                                    <svg width="9" height="6" viewBox="0 0 9 6" fill="none"
+                                        xmlns="http://www.w3.org/2000/svg">
+                                        <path
+                                            d="M1.0152 0L4.32 3.2976L7.6248 0L8.64 1.0152L4.32 5.3352L0 1.0152L1.0152 0Z"
+                                            fill="#67728A" />
+                                    </svg>
+
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="flex flex-col w-full mt-4">
+                            <div class="flex items-center justify-between">
+                                <label for="password"
+                                    class="text-sm text-brand-black-transparent font-light">Password</label>
+
+
+                                <div class="flex items-center">
+                                    <svg width="18" height="19" class="mr-1" viewBox="0 0 18 19" fill="none"
+                                        xmlns="http://www.w3.org/2000/svg">
+                                        <path fill-rule="evenodd" clip-rule="evenodd"
+                                            d="M9 6.875C7.55025 6.875 6.375 8.05025 6.375 9.5C6.375 10.9497 7.55025 12.125 9 12.125C10.4497 12.125 11.625 10.9497 11.625 9.5C11.625 8.05025 10.4497 6.875 9 6.875ZM7.5 9.5C7.5 8.67157 8.17157 8 9 8C9.82843 8 10.5 8.67157 10.5 9.5C10.5 10.3284 9.82843 11 9 11C8.17157 11 7.5 10.3284 7.5 9.5Z"
+                                            fill="#0C69E6" />
+                                        <path fill-rule="evenodd" clip-rule="evenodd"
+                                            d="M9 4.0625C4.91038 4.0625 2.51541 7.45275 1.73298 9.27842C1.66349 9.44056 1.67409 9.62591 1.76161 9.77908C2.75301 11.514 4.89764 14.9375 9 14.9375C13.1024 14.9375 15.247 11.514 16.2384 9.77908C16.3317 9.61578 16.3372 9.41666 16.2531 9.24844C15.8577 8.45765 15.0703 7.17638 13.8801 6.08535C12.6859 4.99068 11.0565 4.0625 9 4.0625ZM9 13.8125C5.7574 13.8125 3.91953 11.238 2.88181 9.4688C3.69287 7.7753 5.75583 5.1875 9 5.1875C10.6935 5.1875 12.0641 5.94681 13.1199 6.91465C14.056 7.77273 14.7212 8.77497 15.1081 9.48597C14.0686 11.2546 12.2321 13.8125 9 13.8125Z"
+                                            fill="#0C69E6" />
+                                    </svg>
+
+                                    <button type="button" class="text-sm text-brand-blue">Show</button type="button">
+                                </div>
+
+                            </div>
+                            <input type="password" id="password" name="password" required
+                                pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*_=+-]).{8,12}$"
+                                class="font-light transition ease-in-out w-full bg-white border border-brand-cloudy-white h-[44px] px-3 flex items-center mt-2 rounded-md text-sm text-brand-black-transparent focus:outline-none focus:border-brand-blue focus:shadow-input">
+                        </div>
+
+                        <div class="mt-10">
+                            <button
+                                class="transition text-sm text-white flex items-center justify-center ease-in-out duration-300 hover:-translate-y-1 focus:shadow-input active:shadow-input w-full h-10 rounded-full border-none bg-brand-blue hover:bg-brand-mount-blue">
+                                Sign up
+                            </button>
+                        </div>
+
+                        <div class="my-6 text-center text-sm font-light text-brand-black-transparent">
+                            <p>By signing up, you agree to our <a href="#"
+                                    class="ml-1 transition ease-in-out text-brand-jade-blue underline underline-offset-[5px] decoration-brand-blue decoration-dashed hover:decoration-solid">Terms
+                                    of Service</a>
+                                and <br /> acknowledge our <a href="#"
+                                    class="ml-1 transition ease-in-out text-brand-jade-blue underline underline-offset-[5px] decoration-brand-blue decoration-dashed hover:decoration-solid">Privacy
+                                    Policy</a>
+                            </p>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="bg-brand-mount-blue pt-14 px-4">
+        <div class="w-full mx-auto max-w-6xl flex flex-col lg:flex-row items-start">
+            <div class="flex flex-col lg:max-w-[15%] basis-[15%] mb-6 lg:mb-0">
+                <div class="h-12">
+                    <img src="images/logo-mark.png" class="w-8 h-8" alt="contentful logo mark">
+                </div>
+
+                <ul class="mt-0 w-full">
+                    <li class="mb-4 lg:mb-0 w-full h-6 flex items-center">
+                        <a class="block w-full h-full text-sm text-white hover:text-brand-light-blue transition ease-in-out"
+                            href="https://github.com/contentful" target="_blank" rel="noopener">Github</a>
+                    </li>
+                    <li class="mb-4 lg:mb-0 w-full h-6 flex items-center">
+                        <a class="block w-full h-full text-sm text-white hover:text-brand-light-blue transition ease-in-out"
+                            href="https://github.com/contentful" target="_blank" rel="noopener">Twitter</a>
+                    </li>
+                    <li class="mb-4 lg:mb-0 w-full h-6 flex items-center">
+                        <a class="block w-full h-full text-sm text-white hover:text-brand-light-blue transition ease-in-out"
+                            href="https://github.com/contentful" target="_blank" rel="noopener">YouTube</a>
+                    </li>
+                    <li class="mb-4 lg:mb-0 w-full h-6 flex items-center">
+                        <a class="block w-full h-full text-sm text-white hover:text-brand-light-blue transition ease-in-out"
+                            href="https://github.com/contentful" target="_blank" rel="noopener">LinkedIn</a>
+                    </li>
+                </ul>
+
+            </div>
+            <div class="flex flex-col w-full lg:max-w-[218px] lg:mr-8 mb-6 lg:mb-0">
+                <div class="h-12">
+                    <h4 class="uppercase text-brand-light-blue text-sm mb-4">Product</h4>
+
+                    <div class="w-full border-t border-brand-mid-blue"></div>
+                </div>
+
+
+                <ul class="mt-0 w-full">
+                    <li class="mb-4 lg:mb-0 w-full h-6 flex items-center">
+                        <a class="block w-full h-full text-sm hover:text-white text-brand-light-blue transition ease-in-out"
+                            href="https://github.com/contentful" target="_blank" rel="noopener">Overview</a>
+                    </li>
+                    <li class="mb-4 lg:mb-0 w-full h-6 flex items-center">
+                        <a class="block w-full h-full text-sm hover:text-white text-brand-light-blue transition ease-in-out"
+                            href="https://github.com/contentful" target="_blank" rel="noopener">Capabilities</a>
+                    </li>
+                    <li class="mb-4 lg:mb-0 w-full h-6 flex items-center">
+                        <a class="block w-full h-full text-sm hover:text-white text-brand-light-blue transition ease-in-out"
+                            href="https://github.com/contentful" target="_blank" rel="noopener">Use cases</a>
+                    </li>
+                    <li class="mb-4 lg:mb-0 w-full h-6 flex items-center">
+                        <a class="block w-full h-full text-sm hover:text-white text-brand-light-blue transition ease-in-out"
+                            href="https://github.com/contentful" target="_blank" rel="noopener">What is a Headless
+                            CMS?</a>
+                    </li>
+                    <li class="mb-4 lg:mb-0 w-full h-6 flex items-center">
+                        <a class="block w-full h-full text-sm hover:text-white text-brand-light-blue transition ease-in-out"
+                            href="https://github.com/contentful" target="_blank" rel="noopener">What's new?</a>
+                    </li>
+                    <li class="mb-4 lg:mb-0 w-full h-6 flex items-center">
+                        <a class="block w-full h-full text-sm hover:text-white text-brand-light-blue transition ease-in-out"
+                            href="https://github.com/contentful" target="_blank" rel="noopener">Pricing</a>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="flex flex-col w-full lg:max-w-[218px] mr-8">
+                <div class="h-12">
+                    <h4 class="uppercase text-brand-light-blue text-sm mb-4">Docs & Help</h4>
+
+                    <div class="w-full border-t border-brand-mid-blue"></div>
+                </div>
+
+
+                <ul class="mt-0 w-full">
+                    <li class="mb-4 lg:mb-0 w-full h-6 flex items-center">
+                        <a class="block w-full h-full text-sm hover:text-white text-brand-light-blue transition ease-in-out"
+                            href="https://github.com/contentful" target="_blank" rel="noopener">Documentation</a>
+                    </li>
+                    <li class="mb-4 lg:mb-0 w-full h-6 flex items-center">
+                        <a class="block w-full h-full text-sm hover:text-white text-brand-light-blue transition ease-in-out"
+                            href="https://github.com/contentful" target="_blank" rel="noopener">Training</a>
+                    </li>
+                    <li class="mb-4 lg:mb-0 w-full h-6 flex items-center">
+                        <a class="block w-full h-full text-sm hover:text-white text-brand-light-blue transition ease-in-out"
+                            href="https://github.com/contentful" target="_blank" rel="noopener">System status</a>
+                    </li>
+                    <li class="mb-4 lg:mb-0 w-full h-6 flex items-center">
+                        <a class="block w-full h-full text-sm hover:text-white text-brand-light-blue transition ease-in-out"
+                            href="https://github.com/contentful" target="_blank" rel="noopener">FAQs</a>
+                    </li>
+                    <li class="mb-4 lg:mb-0 w-full h-6 flex items-center">
+                        <a class="block w-full h-full text-sm hover:text-white text-brand-light-blue transition ease-in-out"
+                            href="https://github.com/contentful" target="_blank" rel="noopener">Help Center</a>
+                    </li>
+                    <li class="mb-4 lg:mb-0 w-full h-6 flex items-center">
+                        <a class="block w-full h-full text-sm hover:text-white text-brand-light-blue transition ease-in-out"
+                            href="https://github.com/contentful" target="_blank" rel="noopener">Developer Showcase</a>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="flex flex-col w-full lg:max-w-[218px] mr-8">
+                <div class="h-12">
+                    <h4 class="uppercase text-brand-light-blue text-sm mb-4">About us</h4>
+
+                    <div class="w-full border-t border-brand-mid-blue"></div>
+                </div>
+
+
+                <ul class="mt-0 w-full">
+                    <li class="mb-4 lg:mb-0 w-full h-6 flex items-center">
+                        <a class="block w-full h-full text-sm hover:text-white text-brand-light-blue transition ease-in-out"
+                            href="https://github.com/contentful" target="_blank" rel="noopener">About us</a>
+                    </li>
+                    <li class="mb-4 lg:mb-0 w-full h-6 flex items-center">
+                        <a class="block w-full h-full text-sm hover:text-white text-brand-light-blue transition ease-in-out"
+                            href="https://github.com/contentful" target="_blank" rel="noopener">Careers</a>
+                    </li>
+                    <li class="mb-4 lg:mb-0 w-full h-6 flex items-center">
+                        <a class="block w-full h-full text-sm hover:text-white text-brand-light-blue transition ease-in-out"
+                            href="https://github.com/contentful" target="_blank" rel="noopener">Leadership</a>
+                    </li>
+                    <li class="mb-4 lg:mb-0 w-full h-6 flex items-center">
+                        <a class="block w-full h-full text-sm hover:text-white text-brand-light-blue transition ease-in-out"
+                            href="https://github.com/contentful" target="_blank" rel="noopener">Blog</a>
+                    </li>
+                    <li class="mb-4 lg:mb-0 w-full h-6 flex items-center">
+                        <a class="block w-full h-full text-sm hover:text-white text-brand-light-blue transition ease-in-out"
+                            href="https://github.com/contentful" target="_blank" rel="noopener">Events</a>
+                    </li>
+                    <li class="mb-4 lg:mb-0 w-full h-6 flex items-center">
+                        <a class="block w-full h-full text-sm hover:text-white text-brand-light-blue transition ease-in-out"
+                            href="https://github.com/contentful" target="_blank" rel="noopener">Press</a>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="flex flex-col w-full lg:max-w-[218px]">
+                <div class="h-12">
+                    <h4 class="uppercase text-brand-light-blue text-sm mb-4">Get in touch</h4>
+
+                    <div class="w-full border-t border-brand-mid-blue"></div>
+                </div>
+
+
+                <ul class="mt-0 w-full">
+                    <li class="mb-4 lg:mb-0 w-full h-6 flex items-center">
+                        <a class="block w-full h-full text-sm hover:text-white text-brand-light-blue transition ease-in-out"
+                            href="https://github.com/contentful" target="_blank" rel="noopener">Contact</a>
+                    </li>
+                    <li class="mb-4 lg:mb-0 w-full h-6 flex items-center">
+                        <a class="block w-full h-full text-sm hover:text-white text-brand-light-blue transition ease-in-out"
+                            href="https://github.com/contentful" target="_blank" rel="noopener">Support</a>
+                    </li>
+                    <li class="mb-4 lg:mb-0 w-full h-6 flex items-center">
+                        <a class="block w-full h-full text-sm hover:text-white text-brand-light-blue transition ease-in-out"
+                            href="https://github.com/contentful" target="_blank" rel="noopener">Partners</a>
+                    </li>
+                    <li class="mb-4 lg:mb-0 w-full h-6 flex items-center">
+                        <a class="block w-full h-full text-sm hover:text-white text-brand-light-blue transition ease-in-out"
+                            href="https://github.com/contentful" target="_blank" rel="noopener">Join research panel</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <ul
+            class="mt-14 border-t border-brand-mid-blue py-12 flex flex-col lg:flex-row lg:items-center lg:justify-center">
+            <li class="lg:px-4 lg:border-r border-brand-mid-blue mb-6 lg:mb-0"><a
+                    class="transition ease-in-out hover:text-white text-sm text-brand-light-blue "
+                    href="https://contentful.com">Imprint / Legal</a></li>
+            <li class="lg:px-4 lg:border-r border-brand-mid-blue mb-6 lg:mb-0"><a
+                    class="transition ease-in-out hover:text-white text-sm text-brand-light-blue "
+                    href="https://contentful.com">Privacy</a></li>
+            <li class="lg:px-4 lg:border-r border-brand-mid-blue mb-6 lg:mb-0"><a
+                    class="transition ease-in-out hover:text-white text-sm text-brand-light-blue "
+                    href="https://contentful.com">Security</a></li>
+            <li class="lg:px-4 lg:border-r border-brand-mid-blue mb-6 lg:mb-0"><a
+                    class="transition ease-in-out hover:text-white text-sm text-brand-light-blue "
+                    href="https://contentful.com">Log in</a></li>
+            <li class="lg:px-4 lg:border-r border-brand-mid-blue mb-6 lg:mb-0"><a
+                    class="transition ease-in-out hover:text-white text-sm text-brand-light-blue "
+                    href="https://contentful.com">Cookie Preferences</a></li>
+            <li class="lg:px-4"><a class="transition ease-in-out hover:text-white text-sm text-brand-light-blue "
+                    href="https://contentful.com">Sitemap</a></li>
+        </ul>
+    </footer>
+</body>
+
+</html>
