@@ -5,6 +5,13 @@ const Axios = require('axios')
 const Express = require('express')
 
 const PORT = process.env.PORT || 4444
+const PLACEHOLDER_ORIGIN_URL = 'PLACEHOLDER_ORIGIN_URL'
+
+function getPage(name) {
+    return Fs.readFileSync(
+        Path.resolve(__dirname, 'pages', `${name}.html`)
+    ).toString()
+}
 
 const app = Express()
 
@@ -21,27 +28,38 @@ const validator = Z.object({
 })
 
 app.get('/success', function (request, response) {
-    return response.sendFile(
-        Path.resolve(__dirname, 'pages', 'success.html')
-    )
+    let content = getPage('success')
+
+    content = content.replace(PLACEHOLDER_ORIGIN_URL, request.query.to)
+
+    return response.send(content)
 })
 
 app.get('/failure', function (request, response) {
-    return response.sendFile(
-        Path.resolve(__dirname, 'pages', 'failure.html')
-    )
+    let content = getPage('failure')
+
+    content = content.replace(PLACEHOLDER_ORIGIN_URL, request.query.to)
+
+    return response.send(content)
 })
 
-app.post('/customers', function (request, response) {
+app.post('/customers', async function (request, response) {
+    const failureRedirectPath = `/failure?to=${request.headers['origin']}`
+    const successRedirectPath = `/success?to=${request.headers['origin']}`
+
     const result = validator.safeParse(request.body)
 
     if (result.success === false) {
-        return response.redirect('/failure')
+        return response.redirect(failureRedirectPath)
     }
 
-    // Validate POST data payload
-    // Redirect to success or failure page based on results.
-    return response.redirect('/success')
+    try {
+        await Axios.post('https://contentful-customers-store.up.railway.app/', result.data)
+    } catch (e) {
+        return response.redirect(failureRedirectPath)
+    }
+
+    return response.redirect(successRedirectPath)
 })
 
 app.listen(PORT, () => {
