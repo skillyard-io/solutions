@@ -35,7 +35,15 @@ app.get('/success', function (request, response) {
     return response.send(content)
 })
 
+app.get('/:social/login', function (request, response) {
+    const failureRedirectPath = `/failure?to=${request.headers['origin']}`
+    const successRedirectPath = `/success?to=${request.headers['origin']}`
+
+    return response.redirect(successRedirectPath)
+})
+
 app.get('/failure', function (request, response) {
+    
     let content = getPage('failure')
 
     content = content.replace(PLACEHOLDER_ORIGIN_URL, request.query.to)
