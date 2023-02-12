@@ -36,7 +36,7 @@ app.get('/success', function (request, response) {
 })
 
 app.get('/:social/login', function (request, response) {
-    const failureRedirectPath = `/failure?to=${request.headers['origin']}`
+    console.log({headers: request.headers})
     const successRedirectPath = `/success?to=${request.headers['origin']}`
 
     return response.redirect(successRedirectPath)
